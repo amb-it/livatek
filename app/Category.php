@@ -7,7 +7,10 @@ use DB;
 
 class Category extends Model
 {
-    public static function getCategoriesTree()
+    /**
+     * @return array
+     */
+    public static function getCategoriesTree() : array
     {
         $categories = DB::table('categories')->get();
 
@@ -25,7 +28,11 @@ class Category extends Model
         return $categories_tree;
     }
 
-    public static function getCategoryWithSubcategories($id)
+    /**
+     * @param string $id
+     * @return mixed
+     */
+    public static function getCategoryWithSubcategories(string $id)
     {
         $category = self::find($id);
 
@@ -34,6 +41,7 @@ class Category extends Model
         }
 
         $category->toArray();
+        unset($category['parent_id']);
 
         if ($category->parent_id) {
             return null;
