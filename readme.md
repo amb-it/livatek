@@ -25,13 +25,24 @@ If you need guidance look at the API-REST standards available online.
 
 Please deliver code and database (SQL) in a zip file with documentation.
 
-## Done
+## Installation
 
-Two methods are available by routes:
+To check how it works:
 
-> http://yourhost/api/categories
-
-> http://yourhost/api/category/{id}
-
-Made database migration and seed. You can migrate database by typing in a terminal
+1. Clone this repository
+2. Install dependencies with:
+> composer install
+3. Rename .env.example to .env
+4. Adjust .env file with your environment variables 
+5. Migrate database with seeds:
 > php artisan migrate --seed
+4. Run development server by typing
+> php artisan serve
+
+## Result
+
+According to task two methods are available by routes:
+
+> http://localhost:8000/api/categories
+
+> http://localhost:8000/api/category/{id}
